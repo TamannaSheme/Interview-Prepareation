@@ -1,0 +1,171 @@
+What is useState() in React ?
+
+
+The useState() is a Hook that allows you to have state variables in functional components. React has two types of components, one is class components which are ES6 classes that extend from React and the other is functional components. Class components a Component and can have state and lifecycle methods: class Message extends React. The useState hook is a special function that takes the initial state as an argument and returns an array of two entries. 
+
+Syntax: The first element is the initial state and the second one is a function that is used for updating the state.
+
+const [state, setState] = useState(initialstate)
+
+Chilld থেকে Parents  এ ডাটা পাস করা যায় কিনা?
+
+1. 
+
+2. Passing Data from Child to Parent
+Passing the data from the child to parent component is a bit trickier. In order to do this, you need to do the following steps:
+
+Create a callback function in the parent component. This callback function will get the data from the child component.
+Pass the callback function in the parent as a prop to the child component.
+The child component calls the parent callback function using props.
+
+import React from 'react';
+
+class Parent extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            data: null
+        }
+    }
+
+    handleCallback = (childData) =>{
+        this.setState({data: childData})
+    }
+
+    render(){
+        const {data} = this.state;
+        return(
+            <div>
+                <Child parentCallback = {this.handleCallback}/>
+                {data}
+            </div>
+        )
+    }
+}
+
+class Child extends React.Component{
+  
+    onTrigger = (event) => {
+        this.props.parentCallback("Data from child");
+        event.preventDefault();
+    }
+
+    render(){
+        return(
+        <div>
+            <form onSubmit = {this.onTrigger}>
+                <input type = "submit" value = "Submit"/>
+            </form>
+        </div>
+        )
+    }
+}
+
+export default Parent;
+
+রিয়েক্ট এর সাথ Mongodb কেন ইউস করা হয়ছে MySql কেন নয়?
+
+MongoDB is faster than MySQL due to its ability to handle large amounts of unstructured data when it comes to speed. It uses slave replication, master replication to process vast amounts of unstructured data and offers the freedom to use multiple data types that are better than the rigidity of MySQL.
+
+
+React JS is basically a JavaScript library built and maintained by Facebook. According to the creator of React JS, Jordan Walke, React is an efficient, declarative, and flexible open-source JavaScript library for building simple, fast, and scalable frontends of web applications.
+Advantage of ReactJS
+1. Easy to Learn and USe
+
+ReactJS is much easier to learn and use. It comes with a good supply of documentation, tutorials, and training resources. Any developer who comes from a JavaScript background can easily understand and start creating web apps using React in a few days. It is the V(view part) in the MVC (Model-View-Controller) model, and referred to as ?one of the JavaScript frameworks.? It is not fully featured but has the advantage of open-source JavaScript User Interface(UI) library, which helps to execute the task in a better manner.
+
+2. Creating Dynamic Web Applications Becomes Easier
+
+
+
+To create a dynamic web application specifically with HTML strings was tricky because it requires a complex coding, but React JS solved that issue and makes it easier. It provides less coding and gives more functionality. It makes use of the JSX(JavaScript Extension), which is a particular syntax letting HTML quotes and HTML tag syntax to render particular subcomponents. It also supports the building of machine-readable codes.
+
+3. Reusable Components
+
+A ReactJS web application is made up of multiple components, and each component has its own logic and controls. These components are responsible for outputting a small, reusable piece of HTML code which can be reused wherever you need them. The reusable code helps to make your apps easier to develop and maintain. These Components can be nested with other components to allow complex applications to be built of simple building blocks. ReactJS uses virtual DOM based mechanism to fill data in HTML DOM. The virtual DOM works fast as it only changes individual DOM elements instead of reloading complete DOM every time.
+
+4. Performance Enhancement
+
+ReactJS improves performance due to virtual DOM. The DOM is a cross-platform and programming API which deals with HTML, XML or XHTML. Most of the developers faced the problem when the DOM was updated, which slowed down the performance of the application. ReactJS solved this problem by introducing virtual DOM. The React Virtual DOM exists entirely in memory and is a representation of the web browser's DOM. Due to this, when we write a React component, we did not write directly to the DOM. Instead, we are writing virtual components that react will turn into the DOM, leading to smoother and faster performance.
+
+5. The Support of Handy Tools
+
+React JS has also gained popularity due to the presence of a handy set of tools. These tools make the task of the developers understandable and easier. The React Developer Tools have been designed as Chrome and Firefox dev extension and allow you to inspect the React component hierarchies in the virtual DOM. It also allows you to select particular components and examine and edit their current props and state.
+
+6. Known to be SEO Friendly
+
+Traditional JavaScript frameworks have an issue in dealing with SEO. The search engines generally having trouble in reading JavaScript-heavy applications. Many web developers have often complained about this problem. ReactJS overcomes this problem that helps developers to be easily navigated on various search engines. It is because React.js applications can run on the server, and the virtual DOM will be rendering and returning to the browser as a regular web page.
+
+7. The Benefit of Having JavaScript Library
+
+Today, ReactJS is choosing by most of the web developers. It is because it is offering a very rich JavaScript library. The JavaScript library provides more flexibility to the web developers to choose the way they want.
+
+8. Scope for Testing the Codes
+
+ReactJS applications are extremely easy to test. It offers a scope where the developer can test and debug their codes with the help of native tools.
+
+Disadvantage of ReactJS
+1. The high pace of development
+
+The high pace of development has an advantage and disadvantage both. In case of disadvantage, since the environment continually changes so fast, some of the developers not feeling comfortable to relearn the new ways of doing things regularly. It may be hard for them to adopt all these changes with all the continuous updates. They need to be always updated with their skills and learn new ways of doing things.
+
+2. Poor Documentation
+
+It is another cons which are common for constantly updating technologies. React technologies updating and accelerating so fast that there is no time to make proper documentation. To overcome this, developers write instructions on their own with the evolving of new releases and tools in their current projects.
+
+3. View Part
+
+ReactJS Covers only the UI Layers of the app and nothing else. So you still need to choose some other technologies to get a complete tooling set for development in the project.
+
+4. JSX as a barrier
+
+ReactJS uses JSX. It's a syntax extension that allows HTML with JavaScript mixed together. This approach has its own benefits, but some members of the development community consider JSX as a barrier, especially for new developers. Developers complain about its complexity in the learning curve.
+
+
+What is Redux and uses?
+React Redux is the official React binding for Redux. It allows React components to read data from a Redux Store, and dispatch Actions to the Store to update data. Redux helps apps to scale by providing a sensible way to manage state through a unidirectional data flow model.
+
+What is difference between React JS and React Native?
+
+Short answer is that react-native builds mobile apps for iOS, Android, and Windows Mobile that you can compile and put in the app stores for users to install. Reactjs is for building web pages for use in a web browser.
+
+React Native: React Native is an open-source UI software framework created by Meta Platforms, Inc. It is used to develop applications for Android, Android TV, iOS, macOS, tvOS, Web, Windows and UWP by enabling developers to use the React framework along with native platform capabilities.
+
+What are high order components in React?
+A higher-order component (HOC) is an advanced technique in React for reusing component logic. HOCs are not part of the React API, per se. They are a pattern that emerges from React's compositional nature. Concretely, a higher-order component is a function that takes a component and returns a new component.
+What are higher-order components example?
+Higher-Order Components are not part of the React API. They are the pattern that emerges from React's compositional nature. The component transforms props into UI, and a higher-order component converts a component into another component. The examples of HOCs are Redux's connect and Relay's createContainer.
+
+What are Hooks in React with example?
+A Hook is a special function that lets you “hook into” React features. For example, useState is a Hook that lets you add React state to function components. 
+
+What does useState return in React?
+useState is a Hook that allows you to have state variables in functional components. You pass the initial state to this function and it returns a variable with the current state value (not necessarily the initial state) and another function to update this value.
+
+What is the use of return statement in useEffect?
+Inside useEffect we can add a return statement at the end of function call which returns a function. This return function does the cleanup work. Frequency execution of the cleanup work also depends upon the second argument passed to useEffect function.
+
+What is useEffect callback?
+
+useEffect(callback, dependencies) is the hook that manages the side-effects in functional components. callback argument is a function to put the side-effect logic. dependencies is a list of dependencies of your side-effect: being props or state values.
+
+Lifecycle of Components
+Each component in React has a lifecycle which you can monitor and manipulate during its three main phases.
+
+The three phases are: Mounting, Updating, and Unmounting.
+
+
+Props are used to pass data, whereas state is for managing data. Data from props is read-only, and cannot be modified by a component that is receiving it from outside. State data can be modified by its own component, but is private (cannot be accessed from outside)
+What is a state and props in React?
+While both hold information that influences the output of render, they are different in one important way: props get passed to the component (similar to function parameters) whereas state is managed within the component (similar to variables declared within a function).
+
+PROPS--------------STATE
+
+The Data is passed from one component to another.	-----------The Data is passed within the component only.
+It is Immutable (cannot be modified).	----------------It is Mutable ( can be modified).
+Props can be used with state and functional components.-----------------	State can be used only with the state components/class component (Before 16.0).
+Props are read-only.	--------------State is both read and write.
+
+Which hooks is used for React performance optimization?
+2. useMemo() Hook. React allows developers to use a useMemo() hook, where we can use the optimization technique of Memoization.
+
